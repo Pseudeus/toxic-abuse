@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6uaa7grk0x2i"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Hurtbox.cs" id="1_p570p"]
+[ext_resource type="PackedScene" uid="uid://bw3m8x2eew6lo" path="res://Assets/Scenes/hit_effect.tscn" id="2_pcrtt"]
+
+[node name="Hurtbox" type="Area2D"]
+monitorable = false
+script = ExtResource("1_p570p")
+hitEffect = ExtResource("2_pcrtt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

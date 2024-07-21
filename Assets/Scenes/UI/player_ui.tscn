@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=3 uid="uid://ci23ygxcyfpkm"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/PlayerUI.cs" id="1_t31o7"]
+[ext_resource type="PackedScene" uid="uid://diwkexvw8oynh" path="res://Assets/Scenes/UI/max_hearts_cont.tscn" id="2_knqhx"]
+[ext_resource type="PackedScene" uid="uid://7y8xgc470jd5" path="res://Assets/Scenes/UI/current_hearts_cont.tscn" id="3_ksbpf"]
+[ext_resource type="Shader" path="res://Assets/Shaders/vignette.gdshader" id="4_nxhsm"]
+[ext_resource type="AudioStream" uid="uid://b2ohwvk6wn8hw" path="res://Assets/MusicAndSounds/BotW - Item Get (Been There, Done That Ver.).ogg" id="5_8unmv"]
+[ext_resource type="Script" path="res://Assets/Scripts/FuelBarHandler.cs" id="5_s7rjc"]
+[ext_resource type="AudioStream" uid="uid://dvukjc21536hs" path="res://Assets/MusicAndSounds/Alerts/MM-E_Note.ogg" id="6_n7s1f"]
+[ext_resource type="Shader" path="res://Assets/Shaders/simple_blur.gdshader" id="7_tel2o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxdp2"]
+shader = ExtResource("4_nxhsm")
+shader_parameter/frame = false
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.035
+shader_parameter/outer_radius = 1.65
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcjwx"]
+font_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w6if"]
+bg_color = Color(0.0539343, 0.225642, 1.20327e-07, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6re0"]
+bg_color = Color(0.244926, 0.545312, 3.85046e-07, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_jqopw"]
+font_size = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vx34t"]
+shader = ExtResource("7_tel2o")
+shader_parameter/radial_blur_lod = 0.0
+shader_parameter/blur_lod = 0.0
+shader_parameter/radial_iterations = 10
+
+[node name="PlayerUI" type="CanvasLayer" groups=["UI"]]
+process_mode = 3
+script = ExtResource("1_t31o7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_rxdp2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaxHeartsCont" parent="Control" instance=ExtResource("2_knqhx")]
+layout_mode = 0
+
+[node name="CurrentHeartsCont" parent="Control" instance=ExtResource("3_ksbpf")]
+layout_mode = 0
+
+[node name="FuelBar" type="Panel" parent="Control"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 88.0
+offset_bottom = 26.0
+script = ExtResource("5_s7rjc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/FuelBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/FuelBar/HBoxContainer"]
+layout_mode = 2
+text = "Light Fuel"
+label_settings = SubResource("LabelSettings_gcjwx")
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/FuelBar/HBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_5w6if")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m6re0")
+step = 0.001
+value = 100.0
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/FuelBar"]
+stream = ExtResource("6_n7s1f")
+bus = &"SFX"
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Panel" type="PanelContainer" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Control/Panel/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_jqopw")
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/Panel"]
+stream = ExtResource("5_8unmv")
+volume_db = -16.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+visible = false
+material = SubResource("ShaderMaterial_vx34t")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

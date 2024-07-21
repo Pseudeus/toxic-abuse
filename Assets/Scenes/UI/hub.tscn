@@ -1,0 +1,222 @@
+[gd_scene load_steps=20 format=3 uid="uid://s0jhk47k3kml"]
+
+[ext_resource type="VideoStream" path="res://Assets/Video/output_pro.ogv" id="1_1dp5g"]
+[ext_resource type="PackedScene" uid="uid://v0aawt6wfps8" path="res://Assets/Scenes/panel_hub_item.tscn" id="1_msfkw"]
+[ext_resource type="Shader" path="res://Assets/Shaders/vignette.gdshader" id="3_mixt5"]
+[ext_resource type="AudioStream" uid="uid://dkxu0tbg6urwi" path="res://Assets/Video/ARCANE Dear Friend Across The River (The Bridge) CINEMATIC COVER (feat. @RachelHardy) (320).mp3" id="3_vta7o"]
+[ext_resource type="Texture2D" uid="uid://bqo2axp3ernre" path="res://Assets/Images/alegría-gato-feliz-icono-redondo-emoji-gris-con-whiskers-sonríe-mientras-se-quita-fangs-dientes-imagen-vectorial-aislada-vector-162316016.webp" id="4_eo5id"]
+[ext_resource type="Texture2D" uid="uid://dryfnne5ieg7w" path="res://Assets/Images/sad.webp" id="5_3lq50"]
+[ext_resource type="Texture2D" uid="uid://b565qta34lxuo" path="res://Assets/Images/meyo.jpg" id="6_amxlw"]
+[ext_resource type="Texture2D" uid="uid://x51o12ewg30s" path="res://Assets/Images/inosuke.jpg" id="7_f76se"]
+[ext_resource type="Texture2D" uid="uid://bb1io3183xvw2" path="res://Assets/Images/th.jpg" id="8_vyw70"]
+[ext_resource type="Texture2D" uid="uid://c8o5ygsstdi6p" path="res://Assets/Images/disgu.jpg" id="9_sp3ef"]
+[ext_resource type="Texture2D" uid="uid://c8kn1ylbdmbba" path="res://Assets/Images/Kimetsu-no-Yaiba.webp" id="10_t0hfu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o5dt"]
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qe128"]
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.975
+shader_parameter/outer_radius = 0.87
+shader_parameter/img = ExtResource("4_eo5id")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xy85c"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.975
+shader_parameter/outer_radius = 0.96
+shader_parameter/img = ExtResource("5_3lq50")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1ixv"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.985
+shader_parameter/outer_radius = 1.0
+shader_parameter/img = ExtResource("6_amxlw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gblxg"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.955
+shader_parameter/outer_radius = 1.0
+shader_parameter/img = ExtResource("7_f76se")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jady"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.985
+shader_parameter/outer_radius = 1.0
+shader_parameter/img = ExtResource("8_vyw70")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eu4rb"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.985
+shader_parameter/outer_radius = 1.0
+shader_parameter/img = ExtResource("9_sp3ef")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qxo6g"]
+resource_local_to_scene = true
+shader = ExtResource("3_mixt5")
+shader_parameter/frame = true
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.985
+shader_parameter/outer_radius = 1.0
+shader_parameter/img = ExtResource("10_t0hfu")
+
+[node name="Hub" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_1dp5g")
+autoplay = true
+expand = true
+loop = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Emotional desease"
+label_settings = SubResource("LabelSettings_5o5dt")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Panel" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_qe128")
+stretch_mode = 6
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer" index="1"]
+text = "alegría"
+
+[node name="Panel2" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_xy85c")
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer" index="1"]
+text = "tristeza"
+
+[node name="Panel3" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_m1ixv")
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" index="1"]
+text = "miedo"
+
+[node name="Panel4" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel4/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_gblxg")
+stretch_mode = 6
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel4/MarginContainer/VBoxContainer" index="1"]
+text = "ira"
+
+[node name="Panel5" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel5/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_8jady")
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel5/MarginContainer/VBoxContainer" index="1"]
+text = "sorpresa"
+
+[node name="Panel6" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel6/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_eu4rb")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel6/MarginContainer/VBoxContainer" index="1"]
+text = "disgusto"
+
+[node name="Panel7" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_msfkw")]
+layout_mode = 2
+
+[node name="TextureRect" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel7/MarginContainer/VBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_qxo6g")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel7/MarginContainer/VBoxContainer" index="1"]
+text = "emoción"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("3_vta7o")
+volume_db = -10.0
+autoplay = true
+
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel2"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel3"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel4"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel5"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel6"]
+[editable path="Control/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/HBoxContainer/Panel7"]

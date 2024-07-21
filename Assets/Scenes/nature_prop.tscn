@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b5ldgolxmfd51"]
+
+[node name="NatureProp" type="StaticBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

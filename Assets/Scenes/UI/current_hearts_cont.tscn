@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://7y8xgc470jd5"]
+
+[ext_resource type="Texture2D" uid="uid://d3oqivbxeqvvl" path="res://Assets/UI/HeartUIFull.png" id="1_u7bh3"]
+
+[node name="CurrentHeartsCont" type="MarginContainer"]
+offset_right = 20.0
+offset_bottom = 16.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="CurrentHearts" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_u7bh3")
+stretch_mode = 1

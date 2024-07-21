@@ -1,0 +1,103 @@
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://bul2n67hl04hq"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_uc6bp"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_nq25p"]
+resource_name = "Reverb"
+room_size = 0.1
+damping = 0.74
+spread = 0.5
+hipass = 0.16
+wet = 0.1
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j5on4"]
+resource_name = "Distortion"
+mode = 1
+pre_gain = 2.0
+keep_hf_hz = 3450.0
+drive = 0.65
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_buchp"]
+resource_name = "Chorus"
+voice_count = 3
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_6mir7"]
+resource_name = "LowPassFilter"
+cutoff_hz = 3500.0
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_ktxha"]
+resource_name = "HighPassFilter"
+cutoff_hz = 3400.0
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_nwkyp"]
+resource_name = "Phaser"
+feedback = 0.5
+depth = 0.4
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_k53xo"]
+resource_name = "Amplify"
+volume_db = 10.0
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_vv8p2"]
+resource_name = "Chorus"
+voice_count = 4
+dry = 0.2
+wet = 1.0
+voice/2/rate_hz = 2.3
+voice/3/delay_ms = 19.21
+voice/3/rate_hz = 4.2
+voice/3/depth_ms = 3.65
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 8000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 21.62
+voice/4/rate_hz = 18.1
+voice/4/depth_ms = 2.88
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -8.39524
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_uc6bp")
+bus/1/effect/0/enabled = true
+bus/2/name = &"Voicing"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 6.02
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_nq25p")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectDistortion_j5on4")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectChorus_buchp")
+bus/2/effect/2/enabled = true
+bus/2/effect/3/effect = SubResource("AudioEffectLowPassFilter_6mir7")
+bus/2/effect/3/enabled = true
+bus/2/effect/4/effect = SubResource("AudioEffectHighPassFilter_ktxha")
+bus/2/effect/4/enabled = true
+bus/2/effect/5/effect = SubResource("AudioEffectPhaser_nwkyp")
+bus/2/effect/5/enabled = true
+bus/2/effect/6/effect = SubResource("AudioEffectAmplify_k53xo")
+bus/2/effect/6/enabled = true
+bus/3/name = &"Enemies"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -1.71701
+bus/3/send = &"Voicing"
+bus/3/effect/0/effect = SubResource("AudioEffectChorus_vv8p2")
+bus/3/effect/0/enabled = true

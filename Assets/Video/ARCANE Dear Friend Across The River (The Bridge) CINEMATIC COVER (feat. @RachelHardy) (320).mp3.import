@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkxu0tbg6urwi"
+path="res://.godot/imported/ARCANE Dear Friend Across The River (The Bridge) CINEMATIC COVER (feat. @RachelHardy) (320).mp3-f448c2beb678032a643b5fbb3e41f78b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Video/ARCANE Dear Friend Across The River (The Bridge) CINEMATIC COVER (feat. @RachelHardy) (320).mp3"
+dest_files=["res://.godot/imported/ARCANE Dear Friend Across The River (The Bridge) CINEMATIC COVER (feat. @RachelHardy) (320).mp3-f448c2beb678032a643b5fbb3e41f78b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://mjhmg45p0xty"]
+
+[ext_resource type="PackedScene" uid="uid://c5eet35yn0ku" path="res://Assets/Scenes/player.tscn" id="1_g7335"]
+[ext_resource type="Script" path="res://Assets/Scripts/Levels/SadLevelInstructions.cs" id="1_kvsxu"]
+[ext_resource type="PackedScene" uid="uid://ccxbcxjofl0dj" path="res://Assets/Scenes/world_environment.tscn" id="1_o7gbw"]
+[ext_resource type="Texture2D" uid="uid://7m53pej8i8wm" path="res://Assets/World/GrassBackground.png" id="2_eutie"]
+[ext_resource type="PackedScene" uid="uid://h1huhlg5d05o" path="res://Assets/Scenes/terrain.tscn" id="5_myfi3"]
+[ext_resource type="Script" path="res://Assets/Scripts/Components/Stats.cs" id="6_cagty"]
+[ext_resource type="PackedScene" uid="uid://ceja27yya1qvk" path="res://Assets/Scenes/tearsCont.tscn" id="6_wjc0o"]
+
+[sub_resource type="Resource" id="Resource_32uo2"]
+resource_local_to_scene = true
+script = ExtResource("6_cagty")
+MaxHealthPoints = 5
+HitPoints = 1
+Invincible = false
+
+[node name="SadLevel" type="Node2D"]
+process_mode = 1
+y_sort_enabled = true
+script = ExtResource("1_kvsxu")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_o7gbw")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(126, 178)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_top_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+texture_repeat = 2
+texture = ExtResource("2_eutie")
+region_enabled = true
+region_rect = Rect2(0, 0, 4096, 2048)
+metadata/_edit_lock_ = true
+
+[node name="Tears" parent="." instance=ExtResource("6_wjc0o")]
+
+[node name="Player" parent="." instance=ExtResource("1_g7335")]
+position = Vector2(126, 178)
+stats = SubResource("Resource_32uo2")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="Terrain" parent="." instance=ExtResource("5_myfi3")]
+
+[editable path="Terrain"]

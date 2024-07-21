@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwt15fay3ex3y"]
+
+[ext_resource type="AudioStream" uid="uid://bk88c4dy6eo66" path="res://Assets/MusicAndSounds/SoundEffects/Risa.ogg" id="1_8huvk"]
+[ext_resource type="Script" path="res://Assets/Scripts/BatsRandomAudioController.cs" id="2_qc6xl"]
+[ext_resource type="AudioStream" uid="uid://bfpo6cx874oqb" path="res://Assets/MusicAndSounds/SoundEffects/Sound_01.ogg" id="3_8t1j0"]
+[ext_resource type="AudioStream" uid="uid://c46vgekhaktew" path="res://Assets/MusicAndSounds/SoundEffects/Sound_02.ogg" id="4_gtlsa"]
+[ext_resource type="AudioStream" uid="uid://5qltbs4f2ue1" path="res://Assets/MusicAndSounds/SoundEffects/Sound_03.ogg" id="5_j0hs0"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+process_mode = 3
+volume_db = -10.0
+max_distance = 300.0
+attenuation = 1.68179
+bus = &"Enemies"
+script = ExtResource("2_qc6xl")
+randomAudioList = [ExtResource("1_8huvk"), ExtResource("3_8t1j0"), ExtResource("4_gtlsa"), ExtResource("5_j0hs0")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

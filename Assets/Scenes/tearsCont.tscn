@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://ceja27yya1qvk"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/TearsCounterHandler.cs" id="1_6r1b7"]
+[ext_resource type="PackedScene" uid="uid://qda7gebipq25" path="res://Assets/Scenes/tears.tscn" id="2_0wn1j"]
+[ext_resource type="AudioStream" uid="uid://7r6jd87f0qli" path="res://Assets/MusicAndSounds/Numbers/ichi.ogg" id="3_v2lvs"]
+[ext_resource type="AudioStream" uid="uid://df58q32v6fvhc" path="res://Assets/MusicAndSounds/Numbers/ni.ogg" id="4_5g3b8"]
+[ext_resource type="AudioStream" uid="uid://d1lqgnom8pqb8" path="res://Assets/MusicAndSounds/Numbers/san.ogg" id="5_q4dd3"]
+[ext_resource type="AudioStream" uid="uid://dg00ttne6t48u" path="res://Assets/MusicAndSounds/Numbers/go.ogg" id="6_wn5qm"]
+[ext_resource type="AudioStream" uid="uid://d1pyfi53frn28" path="res://Assets/MusicAndSounds/Numbers/roku.ogg" id="7_s27bt"]
+[ext_resource type="AudioStream" uid="uid://rpf8b45oew6e" path="res://Assets/MusicAndSounds/Numbers/nana.ogg" id="8_p3e4a"]
+[ext_resource type="AudioStream" uid="uid://dof7uqddys0bd" path="res://Assets/MusicAndSounds/Numbers/hachi.ogg" id="9_qi3up"]
+[ext_resource type="AudioStream" uid="uid://6vrj81bwuh3v" path="res://Assets/MusicAndSounds/Numbers/kyu.ogg" id="10_btps8"]
+[ext_resource type="AudioStream" uid="uid://cqm157k0pmjhe" path="res://Assets/MusicAndSounds/Numbers/juu.ogg" id="11_eohvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhtwg"]
+size = Vector2(114, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr1hh"]
+size = Vector2(50, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al1aq"]
+size = Vector2(84, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oujyl"]
+size = Vector2(96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhav1"]
+size = Vector2(82, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywl7e"]
+size = Vector2(82, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yltle"]
+size = Vector2(82, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb75u"]
+size = Vector2(98, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3c8v"]
+size = Vector2(98, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4un4"]
+size = Vector2(82, 82)
+
+[node name="Tears" type="Node2D"]
+script = ExtResource("1_6r1b7")
+
+[node name="Tears" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(824, 552)
+numAS = ExtResource("3_v2lvs")
+FirstTear = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears" index="0"]
+shape = SubResource("RectangleShape2D_bhtwg")
+
+[node name="Tears2" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(680, 728)
+tearNum = 1
+numAS = ExtResource("4_5g3b8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears2" index="0"]
+shape = SubResource("RectangleShape2D_tr1hh")
+
+[node name="Tears3" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(-73, 712)
+tearNum = 2
+numAS = ExtResource("5_q4dd3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears3" index="0"]
+shape = SubResource("RectangleShape2D_al1aq")
+
+[node name="Tears4" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(992, -80)
+tearNum = 3
+numAS = ExtResource("5_q4dd3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears4" index="0"]
+shape = SubResource("RectangleShape2D_oujyl")
+
+[node name="Tears5" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(967, -192)
+tearNum = 4
+numAS = ExtResource("6_wn5qm")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears5" index="0"]
+shape = SubResource("RectangleShape2D_hhav1")
+
+[node name="Tears6" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(792, -280)
+tearNum = 5
+numAS = ExtResource("7_s27bt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears6" index="0"]
+shape = SubResource("RectangleShape2D_ywl7e")
+
+[node name="Tears7" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(952, 49)
+tearNum = 6
+numAS = ExtResource("8_p3e4a")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears7" index="0"]
+shape = SubResource("RectangleShape2D_yltle")
+
+[node name="Tears8" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(1009, 137)
+tearNum = 7
+numAS = ExtResource("9_qi3up")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears8" index="0"]
+shape = SubResource("RectangleShape2D_wb75u")
+
+[node name="Tears9" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(-256, -257)
+tearNum = 8
+numAS = ExtResource("10_btps8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears9" index="0"]
+shape = SubResource("RectangleShape2D_l3c8v")
+
+[node name="Tears10" parent="." instance=ExtResource("2_0wn1j")]
+position = Vector2(-328, -57)
+tearNum = 9
+numAS = ExtResource("11_eohvb")
+LastTear = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Tears10" index="0"]
+shape = SubResource("RectangleShape2D_d4un4")
+
+[editable path="Tears"]
+[editable path="Tears2"]
+[editable path="Tears3"]
+[editable path="Tears4"]
+[editable path="Tears5"]
+[editable path="Tears6"]
+[editable path="Tears7"]
+[editable path="Tears8"]
+[editable path="Tears9"]
+[editable path="Tears10"]

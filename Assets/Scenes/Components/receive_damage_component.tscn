@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c50ntn2mkgsqc"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Components/ReceiveDamageComponent.cs" id="1_1qn8m"]
+[ext_resource type="PackedScene" uid="uid://dywbtw213rgff" path="res://Assets/Scenes/hurtSound.tscn" id="2_vtxx3"]
+
+[node name="ReceiveDamageComponent" type="Node"]
+script = ExtResource("1_1qn8m")
+hurtSound = ExtResource("2_vtxx3")

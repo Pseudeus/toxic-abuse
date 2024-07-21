@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://var7xpas71rh"]
+
+[ext_resource type="PackedScene" uid="uid://vd02ax5n3l4v" path="res://Assets/Scenes/bat.tscn" id="1_sjfb0"]
+[ext_resource type="Shader" path="res://Assets/Shaders/receive_damage.gdshader" id="2_0vsoa"]
+[ext_resource type="PackedScene" uid="uid://dwt15fay3ex3y" path="res://Assets/Scenes/enemy_audio_random_player.tscn" id="3_qy86d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m806e"]
+resource_local_to_scene = true
+shader = ExtResource("2_0vsoa")
+shader_parameter/active = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eo5v4"]
+resource_local_to_scene = true
+radius = 80.0
+
+[node name="Bat" instance=ExtResource("1_sjfb0")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_m806e")
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource("CircleShape2D_eo5v4")
+
+[node name="AudioStreamPlayer2D" parent="." index="10" instance=ExtResource("3_qy86d")]
+
+[editable path="Hurtbox"]

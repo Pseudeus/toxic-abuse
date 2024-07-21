@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://btq5t30dx7lmr"]
+
+[ext_resource type="Texture2D" uid="uid://b5m2wi5n3ylf3" path="res://Assets/World/Grass.png" id="1_4nsly"]
+[ext_resource type="Script" path="res://Assets/Scripts/GrassHandler.cs" id="1_ijkgj"]
+[ext_resource type="Texture2D" uid="uid://w6tloye3jn0a" path="res://Assets/Effects/GrassEffect.png" id="2_vgeqy"]
+[ext_resource type="PackedScene" uid="uid://b6uaa7grk0x2i" path="res://Assets/Scenes/hurtbox.tscn" id="3_cpuxy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxhp8"]
+atlas = ExtResource("2_vgeqy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6detu"]
+atlas = ExtResource("2_vgeqy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi2pl"]
+atlas = ExtResource("2_vgeqy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq716"]
+atlas = ExtResource("2_vgeqy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp6vs"]
+atlas = ExtResource("2_vgeqy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_veqr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4nsly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxhp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6detu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi2pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq716")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp6vs")
+}],
+"loop": false,
+"name": &"Destroy",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3kxa"]
+size = Vector2(14, 14)
+
+[node name="Grass" type="Node2D"]
+script = ExtResource("1_ijkgj")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_veqr8")
+animation = &"Destroy"
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_cpuxy")]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_q3kxa")
+
+[editable path="Hurtbox"]

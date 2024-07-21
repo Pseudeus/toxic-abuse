@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dap6dj2righjj"]
+
+[ext_resource type="Texture2D" uid="uid://pcwcg6tuu42j" path="res://Assets/Lights/2d_lights_and_shadows_neutral_point_light.webp" id="1_ih2hu"]
+[ext_resource type="Script" path="res://Assets/Scripts/CandleLightingHandler.cs" id="2_0ihyn"]
+
+[node name="PointLight2D" type="PointLight2D"]
+position = Vector2(0, -12)
+color = Color(0.999997, 0.552452, 0.250838, 1)
+energy = 1.25
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 0.5
+texture = ExtResource("1_ih2hu")
+texture_scale = 0.75
+height = 100.0
+script = ExtResource("2_0ihyn")

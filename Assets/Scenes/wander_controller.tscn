@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2js4gl8c8myf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/WanderController.cs" id="1_pvs8i"]
+
+[node name="WanderController" type="Marker2D"]
+script = ExtResource("1_pvs8i")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

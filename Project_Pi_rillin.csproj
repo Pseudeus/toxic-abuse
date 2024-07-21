@@ -1,0 +1,9 @@
+<Project Sdk="Godot.NET.Sdk/4.2.2">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <CodeAnalysisRuleSet>/home/auco1120/Documents/Godot/GodotActual/Project_Pi_Rillin/.vscode/ruleset.xml</CodeAnalysisRuleSet>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+</Project>

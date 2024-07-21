@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://diwkexvw8oynh"]
+
+[ext_resource type="Texture2D" uid="uid://ccmcg15rbu657" path="res://Assets/UI/HeartUIEmpty.png" id="1_nlklr"]
+
+[node name="MaxHeartsCont" type="MarginContainer"]
+offset_right = 20.0
+offset_bottom = 16.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="MaxHearts" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_nlklr")
+stretch_mode = 1

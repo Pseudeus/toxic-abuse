@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4r8uc083fgi3"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/SoftCollision.cs" id="1_malb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iwwc2"]
+radius = 8.0
+
+[node name="SoftCollision" type="Area2D"]
+collision_layer = 32
+collision_mask = 33
+script = ExtResource("1_malb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iwwc2")
